@@ -10,7 +10,7 @@ using System.Threading.Tasks;
  * Date: June 3, 2016
  * Date Modified: June 3, 2016
  * Description: This is a demonstration of the basics of object-oriented programming.
- * Version: 0.0.5 - Added new constructor, _generateAbilities, randomNumber, and refactored Show method.
+ * Version: 0.0.6 - Added Fight, _hitAttempt, _hitDamage methods.
  * ==================================================================================================
  */
 namespace comp123assignment1
@@ -53,8 +53,13 @@ namespace comp123assignment1
             Console.WriteLine();
 
             imhotep.Show();
+            
+            Console.WriteLine();
+
+            imhotep.Fight();
 
             Console.WriteLine();
+
             }
         }
     }

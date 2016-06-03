@@ -22,7 +22,6 @@ namespace comp123assignment1
         private int _strength;
         private int _speed;
         private int _health;
-        private int _statSeed;
         private string _name;
 
         // PUBLIC PROPTERTIES =====================================================
@@ -86,10 +85,11 @@ namespace comp123assignment1
          * @params {int} n2
          * @returns {int}
          */
-        private int _randomNumber(Random number, int n1, int n2)
-            {          
-            this._statSeed = number.Next(n1, n2);
-            return this._statSeed;
+        private int _randomNumber(Random seed, int n1, int n2)
+            {
+            int number;       
+            number = seed.Next(n1, n2);
+            return number;
             }
 
         /** <summary>
@@ -123,7 +123,42 @@ namespace comp123assignment1
             Console.WriteLine("A hero has been generated!");
             }
 
-         // PUBLIC METHODS =====================================================
+        /** <summary>
+         * This method calculates whether or not an attack will hit.
+         * </summary>
+         *
+         * @method hitAttempt
+         * @returns {bool}
+         */
+        private bool _hitAttempt()
+            {
+            Random roll = new Random();
+            int attemptValue = this._randomNumber(roll, 1, 6);
+            if (attemptValue < 5)
+                {
+                return false;
+                }
+            else
+                {
+                return true;
+                }
+            }
+
+        /** <summary>
+         * This method calculates the damage an attack dealt.
+         * </summary>
+         *
+         * @method hitDamage
+         * @returns {int}
+         */
+        private int _hitDamage()
+            {
+            Random roll = new Random();
+            int damageDealt = this._strength * this._randomNumber(roll, 1, 7);
+            return damageDealt;
+            }
+
+        // PUBLIC METHODS =====================================================
 
         /** <summary>
          * This method displays the hero's name and parameters.
@@ -145,5 +180,28 @@ namespace comp123assignment1
             Console.WriteLine("____________________");
             }
 
+        /** <summary>
+         * This method performs a round of combat and displays the results to the console.
+         * </summary>
+         *
+         * @method Fight
+         * @returns {void}
+         */
+        public void Fight()
+            {
+
+           //ppretttyyy
+            bool roundHit = this._hitAttempt();
+            int roundDamage = this._hitDamage();
+            if (roundHit == true)
+                {
+                Console.WriteLine("{0} dealt {1} damage!", this._name, roundDamage);
+                }
+            else
+                {
+                Console.WriteLine("{0} missed!", this._name);
+                }
+
+            } 
         }
     }

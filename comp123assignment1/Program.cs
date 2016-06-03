@@ -9,13 +9,13 @@ using System.Threading.Tasks;
  * Date: June 3, 2016
  * Date Modified: June 3, 2016
  * Description: This is a demonstration of the basics of object-oriented programming.
- * Version: 0.0.2 - Changed description and worked on Hero class
+ * Version: 0.0.3 - Added generateAbilities method (incomplete) to hero class.
  */
 namespace comp123assignment1
     {
 
     /** <summary>
-     * This is the "driver" class for our program
+     * This is the "driver" class for our program.
      * </summary>
      * 
      * @class Program
@@ -24,7 +24,7 @@ namespace comp123assignment1
         {
 
         /** <summary>
-         * This is the "main" method
+         * This is the "main" method.
          * </summary>
          * 
          * @method Main

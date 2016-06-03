@@ -27,7 +27,7 @@ namespace comp123assignment1
         // PUBLIC PROPTERTIES =====================================================
 
         /** <summary>
-         * This is the property that read/writes the _name field
+         * This is the property that read/writes the _name field.
          * </summary>
          *
          * @property {string} Name
@@ -48,21 +48,35 @@ namespace comp123assignment1
         // CONSTRUCTORS =====================================================
 
         /** <summary>
-         * This is the default/empty constructor
+         * This is the default/empty constructor.
          * </summary>
          *
          * @constructor Hero
          */
         public Hero()
             {
-            _initializeAll();
+            this._initializeAll();
             Console.WriteLine("A hero has been generated!");
+            }
+
+        /** <summary>
+         * This constructor takes a string and sets it as the hero's name.
+         * It also randomly sets the hero's stats using the generateAbilities method.
+         * </summary>
+         *
+         * @constructor Hero
+         * @param {string} name
+         */
+        public Hero(string name)
+            {
+            this.Name = name;
+// insert generateAbilities method
             }
 
          // PRIVATE METHODS =====================================================
 
         /** <summary>
-         * This method initializes all variables at a default value
+         * This method initializes all fields at a default value.
          * </summary>
          *
          * @method initializeAll
@@ -71,16 +85,30 @@ namespace comp123assignment1
         private void _initializeAll()
             {
 //temp stats until I figure out how to randomize
-             _strength = 1;
-             _speed = 1;
-             _health = 100;
+             this._strength = 1;
+             this._speed = 1;
+             this._health = 1;
              this.Name = "Hero";
+            }
+
+        /** <summary>
+         * This method randomly sets the hero's stats
+         * </summary>
+         *
+         * @method generateAbilities
+         * @returns {void}
+         */
+        private void generateAbilities
+            {
+            this._strength = Random(1, 100);
+            this._speed = Random(1, 100);
+            this._health = Random(1, 100);
             }
 
          // PUBLIC METHODS =====================================================
 
         /** <summary>
-         * This method displays the hero's parameters
+         * This method displays the hero's parameters.
          * </summary>
          *
          * @method Show

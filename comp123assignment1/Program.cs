@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 /*
+ * ==================================================================================================
  * Author: Jonathan Hao
  * Date: June 3, 2016
  * Date Modified: June 3, 2016
  * Description: This is a demonstration of the basics of object-oriented programming.
- * Version: 0.0.3 - Added generateAbilities method (incomplete) to hero class.
+ * Version: 0.0.4 - Made the program header comment prettier.
+ * ==================================================================================================
  */
 namespace comp123assignment1
     {

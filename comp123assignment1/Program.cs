@@ -10,7 +10,7 @@ using System.Threading.Tasks;
  * Date: June 3, 2016
  * Date Modified: June 3, 2016
  * Description: This is a demonstration of the basics of object-oriented programming.
- * Version: 0.0.4 - Made the program header comment prettier.
+ * Version: 0.0.5 - Added new constructor, _generateAbilities, randomNumber, and refactored Show method.
  * ==================================================================================================
  */
 namespace comp123assignment1
@@ -44,6 +44,15 @@ namespace comp123assignment1
             Console.WriteLine();
 
             heroOfJustice.Show();
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Hero imhotep = new Hero("Imhotep");
+
+            Console.WriteLine();
+
+            imhotep.Show();
 
             Console.WriteLine();
             }

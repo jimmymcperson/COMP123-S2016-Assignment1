@@ -22,6 +22,7 @@ namespace comp123assignment1
         private int _strength;
         private int _speed;
         private int _health;
+        private int _statSeed;
         private string _name;
 
         // PUBLIC PROPTERTIES =====================================================
@@ -70,10 +71,26 @@ namespace comp123assignment1
         public Hero(string name)
             {
             this.Name = name;
-// insert generateAbilities method
+            this._generateAbilities();
             }
 
-         // PRIVATE METHODS =====================================================
+        // PRIVATE METHODS =====================================================
+
+        /** <summary>
+         * This method returns a random number between the specified values (minimum inclusive, maximum exclusive) using a Random object.
+         * </summary>
+         *
+         * @method randomNumber
+         * @params {Random} number
+         * @params {int} n1
+         * @params {int} n2
+         * @returns {int}
+         */
+        private int _randomNumber(Random number, int n1, int n2)
+            {          
+            this._statSeed = number.Next(n1, n2);
+            return this._statSeed;
+            }
 
         /** <summary>
          * This method initializes all fields at a default value.
@@ -84,11 +101,10 @@ namespace comp123assignment1
          */
         private void _initializeAll()
             {
-//temp stats until I figure out how to randomize
              this._strength = 1;
              this._speed = 1;
              this._health = 1;
-             this.Name = "Hero";
+             this.Name = "Default Hero";
             }
 
         /** <summary>
@@ -98,17 +114,19 @@ namespace comp123assignment1
          * @method generateAbilities
          * @returns {void}
          */
-        private void generateAbilities
+        private void _generateAbilities()
             {
-            this._strength = Random(1, 100);
-            this._speed = Random(1, 100);
-            this._health = Random(1, 100);
+            Random roll = new Random();
+            this._strength = this._randomNumber(roll, 1, 101);
+            this._speed = this._randomNumber(roll, 1, 101);
+            this._health = this._randomNumber(roll, 1, 101);
+            Console.WriteLine("A hero has been generated!");
             }
 
          // PUBLIC METHODS =====================================================
 
         /** <summary>
-         * This method displays the hero's parameters.
+         * This method displays the hero's name and parameters.
          * </summary>
          *
          * @method Show
@@ -116,11 +134,15 @@ namespace comp123assignment1
          */
         public void Show()
             {
-// gotta make it pretty
-            Console.WriteLine(this.Name);
-            Console.WriteLine("STR " + _strength);
-            Console.WriteLine("SPD " + _speed);
-            Console.WriteLine("HP " + _health);
+            Console.WriteLine("====================\n{0}\n====================", this._name);
+            Console.WriteLine("Stats");
+            Console.WriteLine("____________________");
+            Console.WriteLine("HP  {0,3}", _health);
+            Console.WriteLine("____________________");
+            Console.WriteLine("STR {0,3}" , _strength);
+            Console.WriteLine("____________________");
+            Console.WriteLine("SPD {0,3}" , _speed);
+            Console.WriteLine("____________________");
             }
 
         }

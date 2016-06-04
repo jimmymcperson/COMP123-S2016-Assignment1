@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 /*
  * ==================================================================================================
  * Author: Jonathan Hao
+ * Student#: 300869273
  * Date: June 3, 2016
  * Date Modified: June 3, 2016
  * Description: This is a demonstration of the basics of object-oriented programming.
- * Version: 0.0.6 - Added Fight, _hitAttempt, _hitDamage methods.
+ * Version: 0.1.0 - Fight method now features formatted text.  Refactored code.  Edited comments.
  * ==================================================================================================
  */
 namespace comp123assignment1
@@ -35,28 +36,16 @@ namespace comp123assignment1
          */
         public static void Main(string[] args)
             {
-            Hero heroOfJustice = new Hero();
+            Hero hero = new Hero("Imhotep");
 
             Console.WriteLine();
 
-            heroOfJustice.Name = "Hero of Justice";
-
-            Console.WriteLine();
-
-            heroOfJustice.Show();
-
-            Console.WriteLine();
-            Console.WriteLine();
-
-            Hero imhotep = new Hero("Imhotep");
-
-            Console.WriteLine();
-
-            imhotep.Show();
+            hero.Show();
             
             Console.WriteLine();
+            Console.WriteLine();
 
-            imhotep.Fight();
+            hero.Fight();
 
             Console.WriteLine();
 

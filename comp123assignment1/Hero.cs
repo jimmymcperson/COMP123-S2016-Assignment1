@@ -61,7 +61,7 @@ namespace comp123assignment1
 
         /** <summary>
          * This constructor takes a string and sets it as the hero's name.
-         * It also randomly sets the hero's stats using the generateAbilities method.
+         * It also randomly sets the hero's stats using the _generateAbilities method.
          * </summary>
          *
          * @constructor Hero
@@ -71,16 +71,18 @@ namespace comp123assignment1
             {
             this.Name = name;
             this._generateAbilities();
+            Console.WriteLine("A hero has been generated!");
             }
 
         // PRIVATE METHODS =====================================================
 
         /** <summary>
          * This method returns a random number between the specified values (minimum inclusive, maximum exclusive) using a Random object.
+         * This method was taken from a lesson from COMP 100 at Centennial College.
          * </summary>
          *
-         * @method randomNumber
-         * @params {Random} number
+         * @method _randomNumber
+         * @params {Random} seed
          * @params {int} n1
          * @params {int} n2
          * @returns {int}
@@ -88,7 +90,7 @@ namespace comp123assignment1
         private int _randomNumber(Random seed, int n1, int n2)
             {
             int number;       
-            number = seed.Next(n1, n2);
+            number = seed.Next(n1, n2);  //selects the number for the parameter "seed" using the "Next" method from the "Random" class.
             return number;
             }
 
@@ -96,7 +98,7 @@ namespace comp123assignment1
          * This method initializes all fields at a default value.
          * </summary>
          *
-         * @method initializeAll
+         * @method _initializeAll
          * @returns {void}
          */
         private void _initializeAll()
@@ -108,10 +110,10 @@ namespace comp123assignment1
             }
 
         /** <summary>
-         * This method randomly sets the hero's stats
+         * This method randomly sets the hero's stats.
          * </summary>
          *
-         * @method generateAbilities
+         * @method _generateAbilities
          * @returns {void}
          */
         private void _generateAbilities()
@@ -120,14 +122,13 @@ namespace comp123assignment1
             this._strength = this._randomNumber(roll, 1, 101);
             this._speed = this._randomNumber(roll, 1, 101);
             this._health = this._randomNumber(roll, 1, 101);
-            Console.WriteLine("A hero has been generated!");
             }
 
         /** <summary>
          * This method calculates whether or not an attack will hit.
          * </summary>
          *
-         * @method hitAttempt
+         * @method _hitAttempt
          * @returns {bool}
          */
         private bool _hitAttempt()
@@ -145,16 +146,17 @@ namespace comp123assignment1
             }
 
         /** <summary>
-         * This method calculates the damage an attack dealt.
+         * This method calculates the damage an attack dealt using the _strength field.
          * </summary>
          *
-         * @method hitDamage
+         * @method _hitDamage
          * @returns {int}
          */
         private int _hitDamage()
             {
             Random roll = new Random();
-            int damageDealt = this._strength * this._randomNumber(roll, 1, 7);
+            int damageDealt;
+            damageDealt = this._strength * this._randomNumber(roll, 1, 7);
             return damageDealt;
             }
 
@@ -189,19 +191,19 @@ namespace comp123assignment1
          */
         public void Fight()
             {
-
-           //ppretttyyy
             bool roundHit = this._hitAttempt();
             int roundDamage = this._hitDamage();
+
+            Console.WriteLine("**************************************************");
             if (roundHit == true)
                 {
                 Console.WriteLine("{0} dealt {1} damage!", this._name, roundDamage);
                 }
             else
                 {
-                Console.WriteLine("{0} missed!", this._name);
+                Console.WriteLine("{0} missed!  ¯\\_(ツ)_/¯ ", this._name);
                 }
-
+            Console.WriteLine("**************************************************");
             } 
         }
     }
